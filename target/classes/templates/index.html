@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookify - Home</title>
+    <style>
+        /* Navbar styling */
+        nav {
+            background-color: #ff5700;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .links a {
+            margin: 0 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Home page styles */
+        .home-page {
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .home-page h1 {
+            color: #333;
+        }
+
+        .home-page p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 10px auto 20px auto;
+        }
+
+        .home-page .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .home-page .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .home-page img {
+            max-width: 300px;
+            width: 80%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="brand">Bookify</div>
+        <div class="links">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/allBooks}">All Books</a>
+            <a th:href="@{/bookform}">Add Book</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="home-page">
+        <h1>Welcome to Bookify</h1>
+        <h3>Book Management System</h3>
+        <p>Manage your favorite books easily — Add, Edit, and Delete books in one place.</p>
+
+        <!-- Image -->
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794" alt="Bookshelf">
+
+        <!-- Motivational Quote -->
+        <div class="quote">
+            "A reader lives a thousand lives before he dies. — George R.R. Martin"
+        </div>
+
+        <a th:href="@{/allBooks}" class="btn">View All Books</a>
+    </div>
+
+</body>
+</html>

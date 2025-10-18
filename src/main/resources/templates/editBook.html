@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Bookify - Edit Book</title>
+    <style>
+        /* Navbar styling */
+        nav {
+            background-color: #ff5700;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .links a {
+            margin: 0 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Edit Book Form Styling */
+        .edit-page {
+            font-family: Arial, sans-serif;
+            width: 450px;
+            margin: 50px auto;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .edit-page h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .edit-page label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .edit-page input[type="text"],
+        .edit-page input[type="number"] {
+           width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+        }
+
+        .edit-page input[type="submit"] {
+           width: 80%;
+            padding: 10px;
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-page input[type="submit"]:hover {
+            background-color: #1e8449;
+        }
+
+        .edit-page a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .edit-page a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="brand">Bookify</div>
+        <div class="links">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/allBooks}">All Books</a>
+            <a th:href="@{/bookform}">Add Book</a>
+        </div>
+    </nav>
+
+    <!-- Edit Book Form -->
+    <div class="edit-page">
+        <h2> Edit Book</h2>
+        <form th:action="@{/EditBook}" method="post" th:object="${book}">
+            <!-- Hidden ID -->
+            <input type="hidden" th:field="*{bookId}">
+
+            <label>Book Title:</label>
+            <input type="text" th:field="*{title}" placeholder="Enter book title">
+
+            <label>Book Author:</label>
+            <input type="text" th:field="*{author}" placeholder="Enter author name">
+
+            <label>Book Price:</label>
+            <input type="text" th:field="*{price}" placeholder="Enter book price">
+
+            <input type="submit" value="Update Book">
+        </form>
+
+        <a th:href="@{/allBooks}">View All Books</a>
+    </div>
+
+</body>
+</html>
